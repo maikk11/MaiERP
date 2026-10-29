@@ -23,7 +23,7 @@ public class ItemCategoriesController : ControllerBase
         return Ok(await _itemCategoryService.GetAllAsync());
     }
 
-    [HttpGet("{id:long}", Name = nameof(GetById))]
+    [HttpGet("{id:long}", Name = "GetItemCategoryById")]
     [ProducesResponseType(typeof(ItemCategoryResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ItemCategoryResponse>> GetById(long id)
