@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MaiERP.Api/MaiERP.Api.csproj" />
+  <Project Path="MaiERP.Tests/MaiERP.Tests.csproj" />
+</Solution>
