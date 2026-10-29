@@ -4,3 +4,95 @@ GET {{MaiERP.Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+### Get all items
+GET {{MaiERP.Api_HostAddress}}/api/items
+Accept: application/json
+
+### Get item by ID (404 example: use a non-existent ID)
+GET {{MaiERP.Api_HostAddress}}/api/items/1
+Accept: application/json
+
+### Get item by code
+GET {{MaiERP.Api_HostAddress}}/api/items/code/ITEM001
+Accept: application/json
+
+### Search items
+GET {{MaiERP.Api_HostAddress}}/api/items/search?searchTerm=bolt
+Accept: application/json
+
+### Get items by category
+GET {{MaiERP.Api_HostAddress}}/api/items/category/1
+Accept: application/json
+
+### Create item (requires an existing item category)
+POST {{MaiERP.Api_HostAddress}}/api/items
+Content-Type: application/json
+
+{
+  "code": "ITEM001",
+  "description": "Example item",
+  "unitOfMeasure": "EA",
+  "supplyType": 0,
+  "isLotManaged": false,
+  "minimumStock": 0,
+  "safetyStock": 0,
+  "leadTimeDays": 0,
+  "itemCategoryId": 1
+}
+
+### Update item
+PUT {{MaiERP.Api_HostAddress}}/api/items/1
+Content-Type: application/json
+
+{
+  "code": "ITEM001",
+  "description": "Updated example item",
+  "unitOfMeasure": "EA",
+  "supplyType": 0,
+  "isLotManaged": false,
+  "minimumStock": 0,
+  "safetyStock": 0,
+  "leadTimeDays": 0,
+  "itemCategoryId": 1
+}
+
+### Delete item
+DELETE {{MaiERP.Api_HostAddress}}/api/items/1
+
+### Get all item categories
+GET {{MaiERP.Api_HostAddress}}/api/item-categories
+Accept: application/json
+
+### Get item category by ID (404 example: use a non-existent ID)
+GET {{MaiERP.Api_HostAddress}}/api/item-categories/1
+Accept: application/json
+
+### Get item category by code
+GET {{MaiERP.Api_HostAddress}}/api/item-categories/code/CAT001
+Accept: application/json
+
+### Search item categories
+GET {{MaiERP.Api_HostAddress}}/api/item-categories/search?searchTerm=hardware
+Accept: application/json
+
+### Create item category
+POST {{MaiERP.Api_HostAddress}}/api/item-categories
+Content-Type: application/json
+
+{
+  "code": "CAT001",
+  "description": "Example category"
+}
+
+### Update item category
+PUT {{MaiERP.Api_HostAddress}}/api/item-categories/1
+Content-Type: application/json
+
+{
+  "code": "CAT001",
+  "description": "Updated example category"
+}
+
+### Delete item category (409 example: category must not contain items)
+DELETE {{MaiERP.Api_HostAddress}}/api/item-categories/1
