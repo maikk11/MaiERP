@@ -23,7 +23,7 @@ public class ItemsController : ControllerBase
         return Ok(await _itemService.GetAllAsync());
     }
 
-    [HttpGet("{id:long}", Name = nameof(GetById))]
+    [HttpGet("{id:long}", Name = "GetItemById")]
     [ProducesResponseType(typeof(ItemResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ItemResponse>> GetById(long id)
