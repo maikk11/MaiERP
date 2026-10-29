@@ -89,7 +89,7 @@ public class ItemRepository : IItemRepository
             existingItem.LeadTimeDays = item.LeadTimeDays;
             existingItem.ItemCategoryId= item.ItemCategoryId;
             await _appDbContext.SaveChangesAsync();
-            await _appDbContext.Entry(item).Reference(i => i.ItemCategory).LoadAsync();
+            await _appDbContext.Entry(existingItem).Reference(i => i.ItemCategory).LoadAsync();
             return existingItem;
         }
         return null;
