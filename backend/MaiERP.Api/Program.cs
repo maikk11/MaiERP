@@ -1,5 +1,6 @@
 using MaiERP.Api.Data;
 using Microsoft.EntityFrameworkCore;
+using MaiERP.Api.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,9 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IItemCategoryRepository, ItemCategoryRepository>();
+builder.Services.AddScoped<IItemRepository, ItemRepository>();
 
 var app = builder.Build();
 
